@@ -10,6 +10,10 @@ export function formatDate(value: string, lang: Locale) {
   if (lang === 'zh-tw') return new Intl.DateTimeFormat('zh-TW',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'}).format(d);
   return new Intl.DateTimeFormat('en-US',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'}).format(d);
 }
+export function formatNoticeDate(value: string, lang: Locale) {
+  const date = formatDate(value, lang);
+  return lang === 'ja' ? date.replace(/^\d{4}年/, '') : date;
+}
 export function maintenanceTime(value: string, lang: Locale, zone: string) {
   const displayZone = lang === 'ja' ? 'Asia/Tokyo' : zone;
   const locale = lang === 'ja' ? 'ja-JP' : lang === 'zh-tw' ? 'zh-TW' : 'en-US';

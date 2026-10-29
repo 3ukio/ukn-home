@@ -1,9 +1,13 @@
 ---
-import {articlePath,type Article} from '../lib/content';
-import {formatDate} from '../lib/dates';
+import {articlePath,articlePublishedAt,type Article} from '../lib/content';
+import {formatDate,formatNoticeDate} from '../lib/dates';
 import {t} from '../i18n/ui';
-import type {Locale} from '../config/site';
+import {noticeText} from '../i18n/notices';
+import {site,type Locale} from '../config/site';
 import Icon from './Icon.astro';
-const {articles,lang}=Astro.props as {articles:Article[],lang:Locale}; const u=t(lang);
+const {articles,lang,officialOnly=false}=Astro.props as {articles:Article[],lang:Locale,officialOnly?:boolean}; const u=t(lang),n=noticeText(lang);
 ---
-{articles.length ? <div class="article-list">{articles.map(a=><a href={articlePath(a)} class="article-row"><div class="article-mark"><Icon name={a.data.category==='guide'?'book':a.data.category==='maintenance'?'clock':a.data.category==='enforcement'?'shield':'layers'} size={22}/></div><div class="article-main"><div class="row-meta"><span class="badge">{u.types[a.data.category]}</span><span>GLOBAL</span><time datetime={a.data.updatedAt}>{formatDate(a.data.updatedAt,lang)}</time></div><h3>{a.data.title}</h3><p>{a.data.summary}</p></div><span class="row-arrow"><Icon/></span></a>)}</div>:<div class="empty-state"><span class="empty-icon"><Icon name="layers" size={28}/></span><h3>{u.empty}</h3><p>{u.emptyHint}</p></div>}
+<div class="notice-list">
+<div class="notice-list-heading" aria-hidden="true"><span>{n.category}</span><span>{n.title}</span><span>{n.date}</span></div>
+{articles.length ? articles.map(a=><div class="notice-row"><span class="badge" data-category={a.data.category}>{u.types[a.data.category]}</span><div class="notice-row-content"><a class="notice-title" href={articlePath(a)}>{a.data.title}</a><div class="notice-row-meta"><span>{a.data.edition} · {a.data.platforms.join(' / ')}</span><a href={a.data.sourceUrl} target="_blank" rel="noopener noreferrer">{n.reference} · {new URL(a.data.sourceUrl).hostname==='store.steampowered.com'?'Steam':'NC'}<Icon name="external" size={14}/></a></div></div><time datetime={articlePublishedAt(a)} title={formatDate(articlePublishedAt(a),lang)}>{formatNoticeDate(articlePublishedAt(a),lang)}</time></div>):<div class="empty-state"><Icon name="layers" size={25}/><h3>{officialOnly?n.empty:u.empty}</h3><p>{officialOnly?n.emptyDetail:u.emptyHint}</p>{officialOnly&&<a class="text-link" href={site.notices} target="_blank" rel="noopener noreferrer">{n.viewOfficial}<Icon name="external" size={16}/></a>}</div>}
+</div>

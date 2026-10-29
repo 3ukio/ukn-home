@@ -1,6 +1,7 @@
 // Change the temporary brand here. No official logo or game artwork is used in v2.
 export const site = {
-  name: 'AION2 Global',
+  name: 'AION2 NOW',
+  subtitles: { ja: 'ナウ', en: 'NEWS & UPDATES', 'zh-tw': '國際服更新資訊' },
   origin: 'https://ukn-home.pages.dev',
   edition: 'Global',
   official: 'https://aion2.plaync.com/en-us/index?redirect=false',

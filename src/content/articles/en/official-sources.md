@@ -12,14 +12,14 @@ region: GLOBAL
 platforms: [Steam, PURPLE]
 officialPublishedAt: null
 publishedAt: "2026-10-29T15:05:38Z"
-updatedAt: "2026-10-29T15:05:38Z"
+updatedAt: "2026-10-29T16:38:25Z"
 verifiedAt: "2026-10-29T15:05:38Z"
 status: published
 ---
 
 ## Check the edition first
 
-This site covers AION2 Global / Steam / PURPLE. A detail published for the Korean or Taiwanese edition is not automatically a Global feature. Treat the interface language and the applicable server region as separate things.
+This site covers AION2 Global / Steam / PURPLE. **A detail published for the Korean or Taiwanese edition is not automatically a Global feature.** Treat the interface language and the applicable server region as separate things.
 
 ## Follow the official source
 

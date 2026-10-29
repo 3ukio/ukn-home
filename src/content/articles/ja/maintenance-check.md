@@ -12,7 +12,7 @@ region: GLOBAL
 platforms: [Steam, PURPLE]
 officialPublishedAt: null
 publishedAt: "2026-10-29T15:05:38Z"
-updatedAt: "2026-10-29T15:21:37Z"
+updatedAt: "2026-10-29T16:38:25Z"
 verifiedAt: "2026-10-29T15:05:38Z"
 status: published
 ---
@@ -25,7 +25,9 @@ status: published
 
 ## 予定時刻は完了の証拠ではない
 
-予定された終了時刻を過ぎても、実施中・延長・終了のどれかを時計だけで判断することはできません。[公式のお知らせ](https://aion2.plaync.com/en-us/board/notice/list) にある完了の追記を確認します。確認できない場合は、そのまま「公式確認待ち」とします。
+**予定された終了時刻を過ぎても、実施中・延長・終了のどれかを時計だけで判断することはできません。**
+
+[公式のお知らせ](https://aion2.plaync.com/en-us/board/notice/list) にある完了の追記を確認します。確認できない場合は、そのまま「公式確認待ち」とします。
 
 ## このサイトの更新方法
 

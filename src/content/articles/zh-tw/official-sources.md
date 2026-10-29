@@ -12,14 +12,18 @@ region: GLOBAL
 platforms: [Steam, PURPLE]
 officialPublishedAt: null
 publishedAt: "2026-10-29T15:05:38Z"
-updatedAt: "2026-10-29T15:05:38Z"
+updatedAt: "2026-10-29T16:38:25Z"
 verifiedAt: "2026-10-29T15:05:38Z"
 status: published
 ---
 
 ## 先確認適用版本
 
-本站關注 AION2 Global / Steam / PURPLE。韓服或台服出現的資訊，不能直接視為國際服已開放的內容。介面使用的語言與公告適用的伺服器地區，也應分開確認。
+本站關注 AION2 Global / Steam / PURPLE。
+
+**韓服或台服出現的資訊，不能直接視為國際服已開放的內容。**
+
+介面使用的語言與公告適用的伺服器地區，也應分開確認。
 
 ## 從官方來源閱讀原文
 

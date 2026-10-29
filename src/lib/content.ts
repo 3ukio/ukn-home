@@ -10,8 +10,10 @@ export async function publishedArticles() {
     ids.add(a.data.uid); routes.add(route); translations.add(translation);
     if (!a.body?.trim()) throw new Error(`Article body is empty: ${a.id}`);
   }
-  return all.filter(a => a.data.status === 'published').sort((a,b) => Date.parse(b.data.updatedAt)-Date.parse(a.data.updatedAt) || a.data.uid.localeCompare(b.data.uid));
+  return all.filter(a => a.data.status === 'published').sort((a,b) => Date.parse(articlePublishedAt(b))-Date.parse(articlePublishedAt(a)) || a.data.uid.localeCompare(b.data.uid));
 }
+// A formatting edit must not bump an old notice's publication date.
+export function articlePublishedAt(a: Article) { return a.data.category === 'guide' ? a.data.publishedAt : a.data.officialPublishedAt || a.data.publishedAt; }
 export function articlePath(a: Article) { return `/${a.data.lang}/articles/${a.data.slug}/`; }
 export function translatedArticle(all: Article[], key: string, lang: Locale) { return all.find(a => a.data.translationKey === key && a.data.lang === lang); }
 export function inSection(a: Article, section: string) {

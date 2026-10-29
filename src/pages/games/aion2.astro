@@ -1,0 +1,5 @@
+---
+import Base from '../../layouts/Base.astro';
+import {articles} from '../../data/articles';
+---
+<Base title="AION2 专区"><section class="wrap page"><p class="eyebrow">GAME / AION2</p><h1>AION2 · 永恒之塔 2</h1><p class="muted">官方资讯、入门攻略与实用技巧，一站阅读。</p><div class="tabs"><a href="/search/">全部内容</a>{['官方资讯','攻略指南','实用技巧'].map(c=><a href={`/search/?category=${c}`}>{c}</a>)}</div><div class="article-grid results">{articles.map(a=><a class="card" href={`/articles/${a.slug}/`}><div class="card-image"><img src={`/art${a.image}.webp`} alt={a.title}/><span>{a.category}</span></div><div class="card-body"><p class="meta">{a.date}</p><h3>{a.title}</h3><p>{a.desc}</p></div></a>)}</div></section></Base>

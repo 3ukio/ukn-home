@@ -10,9 +10,10 @@
   "dependencies": {
     "astro": "^5.16.0"
   },
-  "pnpm": {
-    "overrides": {
-      "esbuild": "npm:esbuild-wasm@0.25.12"
-    }
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "overrides": {
+    "esbuild": "npm:esbuild-wasm@0.25.12"
   }
 }

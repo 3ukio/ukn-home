@@ -1,0 +1,9 @@
+---
+import {articlePath,type Article} from '../lib/content';
+import {formatDate} from '../lib/dates';
+import {t} from '../i18n/ui';
+import type {Locale} from '../config/site';
+import Icon from './Icon.astro';
+const {articles,lang}=Astro.props as {articles:Article[],lang:Locale}; const u=t(lang);
+---
+{articles.length ? <div class="article-list">{articles.map(a=><a href={articlePath(a)} class="article-row"><div class="article-mark"><Icon name={a.data.category==='guide'?'book':a.data.category==='maintenance'?'clock':a.data.category==='enforcement'?'shield':'layers'} size={22}/></div><div class="article-main"><div class="row-meta"><span class="badge">{u.types[a.data.category]}</span><span>GLOBAL</span><time datetime={a.data.updatedAt}>{formatDate(a.data.updatedAt,lang)}</time></div><h3>{a.data.title}</h3><p>{a.data.summary}</p></div><span class="row-arrow"><Icon/></span></a>)}</div>:<div class="empty-state"><span class="empty-icon"><Icon name="layers" size={28}/></span><h3>{u.empty}</h3><p>{u.emptyHint}</p></div>}

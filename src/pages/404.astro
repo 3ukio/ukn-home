@@ -1,0 +1,5 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import {locales,languageNames} from '../config/site';
+---
+<SiteLayout lang="en" title="404 · Page not found" description="This address does not exist. Choose a language to return to AION2 Global." noindex={true} alternates={[]}><section class="container error-page"><span class="error-code">404</span><h1>Page not found</h1><p lang="ja">ページが見つかりません。</p><p lang="zh-TW">找不到這個頁面，請選擇語言返回首頁。</p><div class="language-entry-links">{locales.map(l=><a class="primary-button" href={`/${l}/`}>{languageNames[l]} →</a>)}</div></section></SiteLayout>

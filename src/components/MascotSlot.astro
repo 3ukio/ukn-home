@@ -1,0 +1,7 @@
+---
+// No artwork, scripts or network requests until a licensed original sprite exists.
+// Future contract: asset manifest + static fallback + reduced-motion support.
+const {enabled=false,src,alt='',closeLabel='Close'}=Astro.props;
+---
+{enabled && src && <aside class="mascot" aria-label={alt}><button type="button" aria-label={closeLabel}>×</button><img src={src} alt={alt} width="96" height="96" loading="lazy"/><script is:inline>document.currentScript.closest('.mascot').querySelector('button').addEventListener('click',function(){this.closest('.mascot').remove()})</script></aside>}
+<style>.mascot{position:fixed;bottom:20px;right:20px;z-index:5}.mascot button{position:absolute;top:0;right:0}@media(max-width:767px){.mascot{display:none}}</style>

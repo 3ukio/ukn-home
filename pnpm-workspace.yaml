@@ -1,0 +1,5 @@
+overrides:
+  esbuild: npm:esbuild-wasm@0.25.12
+onlyBuiltDependencies: []
+allowBuilds:
+  sharp: set this to true or false

@@ -1,0 +1,18 @@
+{
+  "name": "atreia-journal",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "astro": "^5.16.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "npm:esbuild-wasm@0.25.12"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="游戏分类"><section class="wrap page"><p class="eyebrow">GAME LIBRARY</p><h1>选择你的冒险世界</h1><p class="muted">从一款游戏开始，慢慢收集每一段旅程。</p><a class="game-feature" href="/games/aion2/"><img src="/art0.webp" alt="AION2 游戏世界"/><div><p class="eyebrow">MMORPG · 资讯 / 攻略 / 技巧</p><h2>AION2 <small>永恒之塔 2</small></h2><p>天族与魔族，两个世界的全新故事。</p><span>探索 6 篇内容 →</span></div></a><p class="muted">更多游戏将在后续加入。当前仅开放 AION2 专区。</p></section></Base>

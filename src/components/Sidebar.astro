@@ -1,0 +1,9 @@
+---
+import {site,sections,type Locale} from '../config/site';
+import {t} from '../i18n/ui';
+import {articlePath,articlePublishedAt,type Article} from '../lib/content';
+import {formatDate} from '../lib/dates';
+import Icon from './Icon.astro';
+const {lang,articles,active=''}=Astro.props as {lang:Locale,articles:Article[],active?:string};const u=t(lang);
+---
+<aside class="sidebar"><section class="side-block"><h2>{u.categories}</h2><nav aria-label={u.categories}>{sections.map((s,i)=><a class:list={['side-link',{selected:active===s}]} href={`/${lang}/${s}/`}><span><Icon name={['layers','clock','shield','book','tools'][i]} size={17}/>{u.nav[s]}</span><Icon name="arrow" size={14}/></a>)}</nav></section><section class="side-block"><h2>{u.recent}</h2>{articles.slice(0,3).map(a=><a href={articlePath(a)} class="recent-item"><h3>{a.data.title}</h3><time datetime={articlePublishedAt(a)}>{formatDate(articlePublishedAt(a),lang)}</time></a>)}</section><section class="source-panel"><span class="small-icon"><Icon name="globe"/></span><h2>{u.sources}</h2><p>{u.sourceHint}</p><a href={site.notices} target="_blank" rel="noopener noreferrer">{u.notices}<Icon name="external" size={15}/></a><a href={site.steam} target="_blank" rel="noopener noreferrer">{u.steam}<Icon name="external" size={15}/></a><div class="manual-note"><span class="status-dot"></span>{u.manual}<small>{u.noLive}</small></div></section></aside>

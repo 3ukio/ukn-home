@@ -2,6 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import {articles} from '../../data/articles';
 export function getStaticPaths(){return articles.map(article=>({params:{slug:article.slug},props:{article}}))}
-const {article:a}=Astro.props;
+const {article}=Astro.props;
 ---
-<Base title={a.title} description={a.desc}><div class="wrap page"><div class="breadcrumb"><a href="/">首页</a> / <a href="/games/aion2/">AION2</a> / {a.category}</div><div class="reading"><p class="eyebrow">{a.category} / AION2</p><h1>{a.title}</h1><p class="meta">永恒纪事编辑部 · 整理于 {a.date} · {a.read} 分钟阅读</p><img class="article-cover" src={`/art${a.image}.webp`} alt={a.title}/><p class="lede">{a.desc}</p><nav class="toc" aria-label="文章目录"><strong>阅读目录</strong>{a.body.map(([h],i)=><a href={`#section-${i}`}>{String(i+1).padStart(2,'0')}　{h}</a>)}</nav><article>{a.body.map(([h,p],i)=><section id={`section-${i}`}><h2>{h}</h2><p>{p}</p></section>)}</article><div class="source">{a.source?<><strong>内容来源</strong><p>据 AION2 日本官方网站公开介绍整理。非官方中文翻译，活动与服务信息以对应地区公告为准。</p><a href={a.source} target="_blank" rel="noopener noreferrer">阅读官方原文 ↗</a></>:<><strong>本站整理</strong><p>本文为通用入门建议，未核实的游戏数值、掉落和职业强度不作推断。</p></>}<p>配图：AION2 官方公开素材，版权归 NCSOFT 及相关权利人所有。</p></div><h2>继续探索</h2><div class="related">{articles.filter(x=>x.slug!==a.slug).slice(0,2).map(x=><a href={`/articles/${x.slug}/`}>{x.title} ↗</a>)}</div></div></div></Base>
+<Base title={article.title}><div class="overline">VERSION 1 · ARCHIVE</div><h1>{article.title}</h1><div class="prose"><p>この URL は保持していますが、旧内容は Global 版向けに再確認していません。</p><p lang="zh-TW">此為第一版文章保留頁，未將舊內容視為國際服官方資料。</p><a href="/ja/guides/">日本語ガイド →</a><p><a href="/en/guides/">English guides →</a> · <a href="/zh-tw/guides/">繁體中文指南 →</a></p></div></Base>

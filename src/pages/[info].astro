@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 export function getStaticPaths(){return ['about','contact','privacy'].map(info=>({params:{info}}))}
-const data={about:{title:'关于我们',sections:[['记录每一次启程','永恒纪事是一个独立玩家游戏内容站，首期围绕 AION2 整理官方公开资讯，并分享通用入门建议。我们希望让第一次来到这里的冒险者，更容易找到所需的信息。'],['内容原则','官方摘要标注来源，本站建议注明整理性质。地区和版本可能存在差异，请以相应地区的游戏公告与游戏内说明为准。本站与 NCSOFT 无隶属关系。']]},contact:{title:'联系方式',sections:[['内容反馈与版权联系','本站尚未公布运营联系邮箱，也暂未开放在线留言。如果发现信息有误，请先通过文章中的官方来源链接核对。'],['运营说明','这是网站首版。正式开放运营前，站点管理者需在本页补充真实的联系邮箱，用于内容纠错、合作及版权反馈。']]},privacy:{title:'隐私政策',sections:[['适用范围','本政策适用于永恒纪事当前静态网站版本，更新日期为 2026 年 10 月 29 日。'],['搜索与数据','站内搜索在浏览器本地执行，不提交到本站数据库。搜索词会显示在当前页面 URL 中。本站没有账户、评论、数据库或主动设置的分析追踪 Cookie。'],['托管与外部链接','托管服务可能为提供访问及保障运行而处理 IP 地址、访问时间和请求日志。点击官方等第三方链接后，将适用对方的隐私政策。'],['联系与更新','运营联系方式尚未公布。后续如增加数据收集或联系渠道，将同步更新本页。']]}};
-const d=data[Astro.params.info];
+const target=Astro.params.info;
 ---
-<Base title={d.title}><section class="wrap page reading"><p class="eyebrow">ATREIA JOURNAL</p><h1>{d.title}</h1><article>{d.sections.map(([h,p])=><section><h2>{h}</h2><p>{p}</p></section>)}</article></section></Base>
+<Base title="Information"><h1>Information</h1><div class="prose"><p>新しい言語別ページをご利用ください。</p><a href={`/ja/${target}/`}>日本語 →</a><p><a href={`/en/${target}/`}>English →</a> · <a href={`/zh-tw/${target}/`}>繁體中文 →</a></p></div></Base>

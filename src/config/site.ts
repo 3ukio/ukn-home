@@ -7,7 +7,7 @@ export const site = {
   official: 'https://aion2.plaync.com/en-us/index?redirect=false',
   notices: 'https://aion2.plaync.com/en-us/board/notice/list',
   steam: 'https://store.steampowered.com/news/app/3393110',
-  contactEmail: '', // Add the owner's real public email; never invent one.
+  contactEmail: 'aion2now.contact@gmail.com',
   mascotEnabled: false,
 };
 export const locales = ['ja', 'en', 'zh-tw'] as const;

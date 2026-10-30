@@ -11,7 +11,7 @@
     "astro": "^5.16.0"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.19.0"
   },
   "overrides": {
     "esbuild": "npm:esbuild-wasm@0.25.12"

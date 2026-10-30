@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 export default defineConfig({
-  site: 'https://ukn-home.pages.dev',
+  site: 'https://aion2now.com',
   output: 'static',
   trailingSlash: 'always',
   devToolbar: { enabled: false },

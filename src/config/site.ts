@@ -2,7 +2,7 @@
 export const site = {
   name: 'AION2 NOW',
   subtitles: { ja: 'ナウ', en: 'NEWS & UPDATES', 'zh-tw': '國際服更新資訊' },
-  origin: 'https://ukn-home.pages.dev',
+  origin: 'https://aion2now.com',
   edition: 'Global',
   official: 'https://aion2.plaync.com/en-us/index?redirect=false',
   notices: 'https://aion2.plaync.com/en-us/board/notice/list',

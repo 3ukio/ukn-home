@@ -107,3 +107,37 @@ export const infoContent: Record<Locale, Record<'about' | 'contact' | 'privacy',
   ],
  },
 };
+
+// Metadata only; visible page labels remain unchanged.
+export const pageSeo = {
+  "ja": {
+    "news": {
+      "title": "AION2 パッチノート・アップデート情報",
+      "description": "AION2 グローバル版のパッチノートとアップデート情報。職業調整、ダンジョン変更、不具合修正を公式情報に基づいて整理します。"
+    },
+    "maintenance": {
+      "title": "AION2 グローバル版 メンテナンス情報",
+      "description": "AION2 グローバル版のメンテナンス情報。対象サーバー、開始時間、終了予定、公式発表に基づく状況を確認できます。"
+    }
+  },
+  "en": {
+    "news": {
+      "title": "AION 2 Global Patch Notes & Updates",
+      "description": "Read AION 2 Global patch notes covering class balance, dungeon changes, bug fixes and official game updates."
+    },
+    "maintenance": {
+      "title": "AION 2 Global Maintenance",
+      "description": "Check AION 2 Global maintenance schedules, affected servers, expected end times and officially confirmed status updates."
+    }
+  },
+  "zh-tw": {
+    "news": {
+      "title": "AION2 國際服更新公告",
+      "description": "查看 AION2 國際服更新公告，掌握職業平衡、副本修改、BUG 修復及版本更新重點。"
+    },
+    "maintenance": {
+      "title": "AION2 國際服維護時間與公告",
+      "description": "查詢 AION2 國際服維護時間、受影響伺服器、預計結束時間及官方確認的維護狀態。"
+    }
+  }
+};

@@ -20,6 +20,7 @@ const articles = defineCollection({
     region: z.enum(['GLOBAL', 'ASIA', 'NA', 'EU', 'SA']),
     platforms: z.array(z.enum(['Steam', 'PURPLE'])).min(1),
     officialPublishedAt: instant.nullable(),
+    officialPublishedAtUnknownReason: z.literal('timezone-unconfirmed').optional(),
     publishedAt: instant,
     updatedAt: instant,
     verifiedAt: instant,
@@ -49,7 +50,8 @@ const articles = defineCollection({
     }
     if (a.category === 'maintenance' && !a.maintenance) err('Maintenance records require schedule and explicit status');
     if (a.category === 'enforcement' && (!a.enforcement || !a.officialPublishedAt)) err('Enforcement records require an official date, reason and published restriction count');
-    if (a.category !== 'guide' && !a.officialPublishedAt) err('Official news requires a verified official publication date');
+    if (a.officialPublishedAtUnknownReason && (a.category !== 'maintenance' || a.officialPublishedAt !== null)) err('Unknown timezone reason requires a maintenance notice with a null official date');
+    if (a.category !== 'guide' && !a.officialPublishedAt && !(a.category === 'maintenance' && a.officialPublishedAtUnknownReason === 'timezone-unconfirmed')) err('Official news requires a verified official publication date or an explicit unconfirmed timezone for maintenance');
     if (a.officialPublishedAt && Date.parse(a.verifiedAt) < Date.parse(a.officialPublishedAt)) err('Verification must not precede the official publication');
     if (a.maintenance) {
       const m = a.maintenance;

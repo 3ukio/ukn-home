@@ -1,0 +1,102 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Icon from '../../components/Icon.astro';
+import {locales,type Locale} from '../../config/site';
+import {rewardsText} from '../../i18n/rewards';
+import {activeCoupons,expiredCoupons,couponExpiryDate,dropsCampaign as campaign,rewardLinks,rewardDate} from '../../data/rewards';
+import '../../styles/rewards.css';
+export function getStaticPaths(){return locales.map(lang=>({params:{lang}}));}
+const lang=Astro.params.lang as Locale,r=rewardsText(lang),codes=activeCoupons();
+const history=expiredCoupons();
+const couponGroups=[{state:"active",title:r.activeCodes,items:codes,empty:r.empty},{state:"expired",title:r.expiredCodes,items:history,empty:r.expiredEmpty}];
+const featuredActive=codes.some(code=>code.code==="AION2SPOOKYDAEVA");
+const alternatives=locales.map(lang=>({lang,path:`/${lang}/rewards/`}));
+const now=Date.now();
+const campaignStatus=now<Date.parse(campaign.startsAt)?r.upcoming:now>Date.parse(campaign.endsAt)?r.ended:r.available;
+---
+<SiteLayout {lang} title={r.seoTitle} description={r.description} alternates={alternatives}>
+  <div class="container rewards-page">
+    <header class="rewards-intro"><div class="rewards-symbol"><Icon name="gift" size={32}/></div><div><h1>{r.title}</h1><p>{r.intro}</p></div></header>
+    <nav class="rewards-jump" aria-label={r.title}><a href="#coupons">{r.coupons}</a><a href="#drops">{r.drops}</a><a href="#claim">{r.how}</a><a href="#tips">{r.tips}</a></nav>
+    <section class="rewards-section" id="coupons">
+      <h2>{r.coupons}</h2>
+      <p class="rewards-muted">{r.couponTerm}</p>
+      {couponGroups.map(group=><div class="coupon-group">
+        <h3>{group.title}</h3>
+        <div class="rewards-table-wrap"><table class="rewards-table"><caption class="rewards-sr">{group.title}</caption><thead><tr>{r.columns.map(label=><th scope="col">{label}</th>)}</tr></thead><tbody data-coupon-list={group.state}>
+          {group.items.map(code=><tr data-coupon-row data-coupon-code={code.code} data-coupon-status={code.status} data-reward-expiry={code.expiresAt||undefined} data-current-status={group.state}>
+            <td><div class="coupon-code"><code>{code.code}</code><button type="button" data-copy-reward={code.code} data-copied-label={r.copied} data-error-label={r.copyFail} disabled={group.state==='expired'} hidden={group.state==='expired'} aria-label={r.copy+': '+code.code}>{r.copy}</button></div>
+              <small class="coupon-record"><a href={code.sourceUrl} target="_blank" rel="noopener noreferrer">{r.couponSource}<Icon name="external" size={13}/></a><span>{r.couponPublished}: {code.publishedAt?<time datetime={code.publishedAt}>{rewardDate(code.publishedAt,lang)}</time>:'—'}</span></small>
+            </td>
+            <td>{code.reward[lang]}</td><td>{code.expiresAt?<time datetime={code.expiresAt}>{couponExpiryDate(code.expiresAt,lang)}</time>:'—'}</td>
+            <td><span class={group.state==='active'?'badge':'badge-neutral'} data-coupon-state-label data-active-label={r.active} data-expired-label={r.expired}>{group.state==='active'?r.active:r.expired}</span></td>
+          </tr>)}
+          <tr data-coupon-empty hidden={group.items.length>0}><td colspan="4" class="rewards-empty">{group.empty}</td></tr>
+        </tbody></table></div>
+      </div>)}
+      <p class="rewards-copy-status" data-copy-status role="status" aria-live="polite"></p>
+    </section>
+    <section class="rewards-section" id="redeem"><h2>{r.couponGuide}</h2><p class="coupon-path">{r.couponPath}</p><ol class="coupon-guide">{r.couponSteps.map((step,index)=><li>{index===5?<><span data-guide-active hidden={!featuredActive}>{step}</span><span data-guide-expired hidden={featuredActive}>{r.couponExpiredStep}</span></>:step}</li>)}</ol><p>{r.couponSafety}</p><a class="text-link" href={rewardLinks.couponHelp} target="_blank" rel="noopener noreferrer">{r.couponHelp}<Icon name="external" size={16}/></a></section>
+    <section class="rewards-section" id="drops">
+      <div class="rewards-section-title"><h2>{r.drops}</h2><span class="badge">{campaignStatus}</span></div>
+      <h3>{campaign.name[lang]}</h3><p class="rewards-muted">{r.region}</p>
+      <dl class="rewards-schedule"><div><dt>{r.start}</dt><dd><time datetime={campaign.startsAt}>{rewardDate(campaign.startsAt,lang)}</time></dd></div><div><dt>{r.end}</dt><dd><time datetime={campaign.endsAt}>{rewardDate(campaign.endsAt,lang)}</time></dd></div>{campaign.claimBy&&<div><dt>{r.claimBy}</dt><dd><time datetime={campaign.claimBy}>{rewardDate(campaign.claimBy,lang)}</time></dd></div>}</dl>
+      <div class="rewards-table-wrap"><table class="rewards-table"><caption class="rewards-sr">{campaign.name[lang]}</caption><thead><tr><th scope="col">{r.watchTime}</th><th scope="col">{r.reward}</th><th scope="col">{r.quantity}</th></tr></thead><tbody>{campaign.rewards.map(reward=><tr><td><strong>{reward.minutes/60} {r.hours}</strong></td><td><span lang="en">{reward.name}</span></td><td>×{reward.quantity}</td></tr>)}</tbody></table></div>
+      <p class="rewards-muted rewards-item-note">{r.itemNote}</p>
+      <div class="rewards-actions"><a class="primary-button" href={lang==='ja'?rewardLinks.jaOfficial:rewardLinks.official} target="_blank" rel="noopener noreferrer">{r.official}<Icon name="external" size={16}/></a><a class="text-link" href={campaign.sourceUrl} target="_blank" rel="noopener noreferrer">{r.source}<Icon name="external" size={16}/></a></div>
+    </section>
+    <section class="rewards-section" id="claim"><h2>{r.how}</h2><ol class="rewards-steps">{r.steps.map(([title,body])=><li><h3>{title}</h3><p>{body}</p></li>)}</ol><div class="rewards-actions"><a class="text-link" href={rewardLinks.inventory} target="_blank" rel="noopener noreferrer">{r.inventory}<Icon name="external" size={16}/></a><a class="text-link" href={rewardLinks.watch} target="_blank" rel="noopener noreferrer">{r.watch}<Icon name="external" size={16}/></a></div></section>
+    <section class="rewards-section" id="tips"><h2>{r.tips}</h2><ul class="rewards-tips">{r.tipItems.map(tip=><li>{tip}</li>)}</ul><a class="text-link" href={rewardLinks.support} target="_blank" rel="noopener noreferrer">{r.support}<Icon name="external" size={16}/></a>
+      {lang==='zh-tw'&&<aside class="rewards-tool"><h3>{rewardsText('zh-tw').toolTitle}</h3><p>{rewardsText('zh-tw').toolIntro}</p><ol>{rewardsText('zh-tw').toolSteps.map(step=><li>{step}</li>)}</ol><p>{rewardsText('zh-tw').toolNote}</p><a class="text-link" href={rewardLinks.xunyou} target="_blank" rel="noopener noreferrer">{rewardsText('zh-tw').toolSource}<Icon name="external" size={16}/></a></aside>}
+    </section>
+  </div>
+</SiteLayout>
+<script>
+import {couponStatus} from '../../data/rewards';
+const activeList=document.querySelector<HTMLElement>('[data-coupon-list="active"]');
+const expiredList=document.querySelector<HTMLElement>('[data-coupon-list="expired"]');
+let expiryTimer:ReturnType<typeof setTimeout>|undefined;
+function refreshCoupons(){
+  if(!activeList||!expiredList)return;
+  if(expiryTimer!==undefined)clearTimeout(expiryTimer);
+  const now=Date.now();
+  let nextExpiry=Infinity;
+  document.querySelectorAll<HTMLElement>('[data-coupon-row]').forEach(row=>{
+    const expiresAt=row.dataset.rewardExpiry||null;
+    const state=couponStatus({status:row.dataset.couponStatus as 'active'|'expired',expiresAt},now);
+    const target=state==='active'?activeList:expiredList;
+    if(row.parentElement!==target)target.insertBefore(row,target.querySelector('[data-coupon-empty]'));
+    row.dataset.currentStatus=state;
+    const button=row.querySelector<HTMLButtonElement>('[data-copy-reward]');
+    if(button){button.disabled=state==='expired';button.hidden=state==='expired';}
+    const badge=row.querySelector<HTMLElement>('[data-coupon-state-label]');
+    if(badge){badge.textContent=state==='active'?badge.dataset.activeLabel!:badge.dataset.expiredLabel!;badge.className=state==='active'?'badge':'badge-neutral';}
+    if(state==='active'&&expiresAt)nextExpiry=Math.min(nextExpiry,Date.parse(expiresAt));
+  });
+  [activeList,expiredList].forEach(list=>{
+    const empty=list.querySelector<HTMLElement>('[data-coupon-empty]');
+    if(empty)empty.hidden=!!list.querySelector('[data-coupon-row]');
+  });
+  const featured=document.querySelector<HTMLElement>('[data-coupon-code="AION2SPOOKYDAEVA"]');
+  const featuredActive=featured?.dataset.currentStatus==='active';
+  document.querySelectorAll<HTMLElement>('[data-guide-active]').forEach(node=>node.hidden=!featuredActive);
+  document.querySelectorAll<HTMLElement>('[data-guide-expired]').forEach(node=>node.hidden=featuredActive);
+  if(Number.isFinite(nextExpiry))expiryTimer=setTimeout(refreshCoupons,Math.min(Math.max(0,nextExpiry-now),2147483647));
+}
+refreshCoupons();
+document.addEventListener('visibilitychange',refreshCoupons);
+document.querySelectorAll<HTMLButtonElement>('[data-copy-reward]').forEach(button=>{
+  button.addEventListener('click',async()=>{
+    refreshCoupons();
+    if(button.disabled)return;
+    const status=document.querySelector<HTMLElement>('[data-copy-status]');
+    try{
+      await navigator.clipboard.writeText(button.dataset.copyReward!);
+      refreshCoupons();
+      if(button.disabled)return;
+      button.textContent=button.dataset.copiedLabel!;
+      if(status)status.textContent=button.dataset.copiedLabel!;
+    }catch{if(status)status.textContent=button.dataset.errorLabel!;}
+  });
+});
+</script>

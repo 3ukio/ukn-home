@@ -2,7 +2,7 @@ import {site,locales,sections,infoPages,htmlLanguages} from '../config/site';
 import {publishedArticles,articlePath} from '../lib/content';
 export async function GET(){
  const all=await publishedArticles();
- const groups=[locales.map(lang=>({lang,path:`/${lang}/`})),...[...sections,...infoPages].map(s=>locales.map(lang=>({lang,path:`/${lang}/${s}/`})) )];
+ const groups=[locales.map(lang=>({lang,path:`/${lang}/`})),...[...sections,...infoPages,'rewards'].map(s=>locales.map(lang=>({lang,path:`/${lang}/${s}/`})) )];
  const keys=[...new Set(all.map(a=>a.data.translationKey))];
  for(const key of keys)groups.push(all.filter(a=>a.data.translationKey===key).map(a=>({lang:a.data.lang,path:articlePath(a)})));
  const esc=(s:string)=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');

@@ -1,0 +1,17 @@
+---
+import Icon from './Icon.astro';
+import {rewardsText} from '../i18n/rewards';
+import type {Locale} from '../config/site';
+const {lang}=Astro.props as {lang:Locale};
+const r=rewardsText(lang);
+---
+<a class="rewards-entry" href={`/${lang}/rewards/`}>
+  <Icon name="gift" size={26}/><span><strong>{r.entry}</strong><small>{r.entrySub}</small></span><Icon size={20}/>
+</a>
+<style>
+.rewards-entry{display:flex;align-items:center;gap:14px;padding:12px 16px;min-width:260px;max-width:340px;border:1px solid #9ac8dd;border-radius:var(--radius);background:#e9f5fc;color:#153c54;line-height:1.5}
+.rewards-entry span{flex:1;min-width:0}.rewards-entry strong{color:inherit;display:block;font-size:17px}.rewards-entry small{display:block;font-size:14px;margin-top:2px}.rewards-entry:hover{border-color:var(--accent);color:#174d68}
+:global([data-theme=dark]) .rewards-entry{background:#203c4c;border-color:#4b7c94;color:#d6effd}
+:global(.notices-heading-copy){min-width:0}:global(.notices-heading-copy .small-muted){display:block;margin-top:3px}
+@media(max-width:650px){:global(.section-heading.rewards-heading){flex-wrap:wrap}.rewards-entry{max-width:none;width:100%;min-width:0}}
+</style>

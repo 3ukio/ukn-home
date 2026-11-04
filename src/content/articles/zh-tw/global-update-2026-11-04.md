@@ -38,6 +38,8 @@ status: published
 
 困難模式各區前段通關部隊可登錄名人堂；同角色重複紀錄，以及涉及違規的紀錄，可能移除。
 
+[深淵重鑄：盧德萊攻略](/zh-tw/articles/abyssal-forge-ludra-guide/)
+
 ## 手鐲與裝備變更券
 
 - **Abyssal Bracelet (Bound)**：最高增幅**3級**，普通、困難均有機率掉落。

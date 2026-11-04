@@ -38,6 +38,8 @@ Rewards include **Ludra's Weapon and Guard (Bound)**, **Ludra's Bracelet (Bound)
 
 Top Hard-clearing Forces enter the regional Hall of Fame. Duplicate character records may be removed; records may also be removed for prohibited activities.
 
+[Abyssal Forge: Ludra Guide](/en/articles/abyssal-forge-ludra-guide/)
+
 ## Bracelet and voucher exchanges
 
 - **Abyssal Bracelet (Bound)**: Amplify up to **Level 3**; can drop in both difficulties.

@@ -1,0 +1,5 @@
+export const videoText = {
+ ja:{title:'ルドラ実戦動画・ギミック別チャプター',intro:'AION2 ルドラ攻略：最終ボスの球、床ギミック、ブレスを動画で確認。',play:'動画を再生',original:'元の動画を見る',note:'日本語音声は動画の設定から選択できます。字幕・音声の選択肢は動画によって異なります。',privacy:'再生すると外部サービスに接続します。',chapters:'ルドラ ギミック',youtube:'YouTube',alternatives:['中文實戰 A','中文實戰 B'],chapterNote:'最終ボス・ルドラのチャプター。'},
+ en:{title:'Ludra Video Guide & Boss Mechanics',intro:'AION 2 Ludra Guide: watch the final boss orb checks, floor mechanics and breath.',play:'Play video',original:'Watch original',note:'Use YouTube settings for available audio and subtitles.',privacy:'Playing connects to the external video service.',chapters:'Boss Mechanics',youtube:'YouTube',alternatives:['中文實戰 A','中文實戰 B'],chapterNote:'Chapters cover the final boss, Ludra.'},
+ 'zh-tw':{title:'盧德萊實戰影片攻略・首領機制',intro:'AION2 盧德萊攻略：觀看最終首領的球體、地板與吐息處理。',play:'播放影片',original:'前往原平台觀看',note:'可在 YouTube 設定選擇可用的中文翻譯字幕或音軌。',privacy:'播放後會連線至外部影音服務。',chapters:'首領機制章節',youtube:'YouTube',alternatives:['中文實戰 A','中文實戰 B'],chapterNote:'章節僅對應最終首領盧德萊；中文實戰 A／B 尚未核實章節。'}
+};

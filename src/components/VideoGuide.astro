@@ -1,0 +1,54 @@
+---
+import {ludraVideo} from '../data/videoGuides';
+import {videoText} from '../i18n/videoGuide';
+import type {Locale} from '../config/site';
+const {lang,video=ludraVideo}=Astro.props as {lang:Locale,video?:typeof ludraVideo};const t=videoText[lang];
+const sources=[{id:video.youtube.id,kind:'youtube',label:t.youtube,credit:`${video.youtube.author} · ${video.youtube.title}`,url:video.youtube.url},...(lang==='zh-tw'?video.bilibili.map((id,i)=>({id,kind:'bilibili',label:t.alternatives[i],credit:t.alternatives[i],url:`https://www.bilibili.com/video/${id}`})):[])];
+---
+<section class="video-guide" data-video-guide data-lang={lang}>
+ <h2>{t.title}</h2><p>{t.intro}</p>
+ <div class="video-sources" role="group" aria-label={t.title}>{sources.map((s,i)=><button type="button" data-source data-kind={s.kind} data-id={s.id} data-url={s.url} data-credit-text={s.credit} aria-pressed={i===0?'true':'false'}>{s.label}</button>)}</div>
+ <div class="video-frame" data-frame><button type="button" data-play>▷ {t.play}</button></div>
+ <p><span data-credit>{video.youtube.author} · {video.youtube.title}</span> · <a data-original href={video.youtube.url} target="_blank" rel="noopener noreferrer">{t.original}</a></p>
+ <p>{t.note} {t.privacy}</p>
+ <div data-chapters><h3>{t.chapters}</h3><p>{t.chapterNote}</p><div class="video-chapters">{video.chapters.map(c=><button type="button" data-seconds={c.seconds}><time>{Math.floor(c.seconds/60).toString().padStart(2,'0')}:{(c.seconds%60).toString().padStart(2,'0')}</time> {lang==='ja'?c.ja:lang==='zh-tw'?c.zh:c.en}</button>)}</div></div>
+</section>
+<style>
+.video-guide{margin:2rem 0;padding:1rem;border:1px solid var(--border,#758ba34d);border-radius:12px;min-width:0}.video-frame{aspect-ratio:16/9;width:100%;background:#101c2c;display:grid;place-items:center;overflow:hidden;border-radius:8px}.video-frame :global(iframe){width:100%;height:100%;border:0}.video-guide button{font:inherit;color:inherit;border:1px solid #7bacc55c;border-radius:7px;padding:.65rem;background:transparent;cursor:pointer;text-align:left;white-space:normal}.video-frame button{color:#d6f3ff}.video-sources{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}.video-sources [aria-pressed=true]{background:#76b8df24}.video-chapters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}.video-guide p{overflow-wrap:anywhere}.video-chapters time{color:#77acc9;font-variant-numeric:tabular-nums}@media(max-width:520px){.video-chapters{grid-template-columns:1fr}.video-guide{padding:.75rem}}
+</style>
+<script>
+let apiPromise:Promise<void>|undefined;
+function youtubeAPI(){
+ if((window as any).YT?.Player)return Promise.resolve();
+ return apiPromise ||= new Promise<void>((resolve,reject)=>{
+ const old=(window as any).onYouTubeIframeAPIReady;
+ (window as any).onYouTubeIframeAPIReady=()=>{old?.();resolve();};
+ const script=document.createElement('script');script.src='https://www.youtube.com/iframe_api';script.onerror=()=>reject(new Error('YouTube API unavailable'));document.head.append(script);
+ });
+}
+document.querySelectorAll<HTMLElement>('[data-video-guide]').forEach(root=>{
+ let source=root.querySelector<HTMLButtonElement>('[data-source]')!;
+ let player:any;let frame:HTMLIFrameElement|undefined;let generation=0;let ready=false;let pending=0;
+ const host=root.querySelector<HTMLElement>('[data-frame]')!;
+ const placeholder=host.innerHTML;
+ function clear(){generation++;ready=false;try{player?.destroy();}catch{}player=undefined;frame=undefined;host.innerHTML=placeholder;}
+ function play(seconds=0){
+ pending=seconds;
+ if(player&&ready){player.seekTo(seconds,true);player.playVideo();return;}
+ if(frame)return;
+ const token=++generation;
+ frame=document.createElement('iframe');frame.title=source.textContent||'Video';frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';
+ const id=source.dataset.id!;
+ if(source.dataset.kind==='youtube'){
+ const u=new URL(`https://www.youtube.com/embed/${id}`);u.search=new URLSearchParams({enablejsapi:'1',origin:location.origin,autoplay:'1',start:String(seconds),hl:root.dataset.lang==='ja'?'ja':root.dataset.lang==='zh-tw'?'zh-TW':'en',...(root.dataset.lang==='ja'?{cc_lang_pref:'ja',cc_load_policy:'1'}:{})}).toString();frame.src=u.href;host.replaceChildren(frame);
+ const current=frame;
+ youtubeAPI().then(()=>{if(token!==generation)return;player=new (window as any).YT.Player(current,{events:{onReady:()=>{if(token!==generation)return;ready=true;player.seekTo(pending,true);player.playVideo();}}});}).catch(()=>{});
+ }else{const u=new URL('https://player.bilibili.com/player.html');u.search=new URLSearchParams({bvid:id,autoplay:'0',danmaku:'0'}).toString();frame.src=u.href;host.replaceChildren(frame);}
+ }
+ root.addEventListener('click',event=>{
+ const target=(event.target as Element).closest<HTMLButtonElement>('button');if(!target)return;
+ if(target.hasAttribute('data-source')){clear();source=target;root.querySelectorAll('[data-source]').forEach(b=>b.setAttribute('aria-pressed',String(b===source)));const link=root.querySelector<HTMLAnchorElement>('[data-original]')!;link.href=source.dataset.url!;root.querySelector<HTMLElement>('[data-credit]')!.textContent=source.dataset.creditText||source.textContent;root.querySelector<HTMLElement>('[data-chapters]')!.hidden=source.dataset.kind!=='youtube';}
+ else if(target.hasAttribute('data-play'))play();else if(target.dataset.seconds)play(Number(target.dataset.seconds));
+ });
+});
+</script>

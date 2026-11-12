@@ -12,7 +12,7 @@ region: GLOBAL
 platforms: [Steam, PURPLE]
 officialPublishedAt: null
 publishedAt: "2026-11-04T22:12:20Z"
-updatedAt: "2026-11-04T22:12:20Z"
+updatedAt: "2026-11-12T05:12:35Z"
 verifiedAt: "2026-11-04T22:12:20Z"
 status: published
 ---
@@ -28,7 +28,7 @@ status: published
 | Raid | Abyssal Forge: Ludra |
 | Modes / minimum item level | **Normal: 2,800 / Hard: 3,000** |
 | Group | **10 players**, two parties of five; player-guide setup |
-| Official run limit | **1 hour** in either mode |
+| Official run limit | **2 hours** in either mode |
 | Main rewards | Bound Ludra weapons/guard, bracelets, wings and artwork |
 
 The item levels are **entry requirements**, not recommended progression for a first clear. Normal offers the same reward types as Hard, with different drop rates.
@@ -76,7 +76,7 @@ The old guide's fixed countdown is not a verified Global timer. Use the actual l
 | Red/blue player marks | Move to the agreed colour sides and keep opposite colours apart. | Opposite colours damage each other at close range. |
 | Final breath and coloured circles | Enter a circle matching your mark **late enough that its protection covers the breath**. | Entering too early can let protection expire before the attack ends. |
 
-**Do not memorize a fixed one-jump/two-jump side.** The supplied guides disagree on the second-phase side pattern. Global jump counts, grid thresholds, breath timing and the reported boss enrage are pending live testing. The official **1-hour run limit** is a separate rule.
+**Do not memorize a fixed one-jump/two-jump side.** The supplied guides disagree on the second-phase side pattern. Global jump counts, grid thresholds, breath timing and the reported boss enrage are pending live testing. The official **2-hour run limit** is a separate rule.
 
 ## Five calls that prevent wipes
 
@@ -109,3 +109,5 @@ See the [Nov 4 Global update](/en/articles/global-update-2026-11-04/) for the re
 - [Global Nov 3 (PST) / Nov 4 (CET) patch notes](https://aion2.plaync.com/en-us/board/update/view?articleId=6aead0e86cfe4756db5b913f)
 - AION2 Guide: Abyssal Forge: Ludra — English, Japanese and Traditional Chinese PDF captures.
 - AION 2 Meta: Abyssal Forge Ludra Raid Guide — English PDF capture.
+
+Nov 11: both modes now allow 2 hours; Central Abyss Fusion Reactor HP is reduced. Reward Group 5 increases from 30% to 100%, with Wrathful Mind/Will/Ego (Bound) added; this does not guarantee each material. [11/11](/en/articles/global-update-2026-11-11/)

@@ -12,7 +12,7 @@ region: GLOBAL
 platforms: [Steam, PURPLE]
 officialPublishedAt: null
 publishedAt: "2026-11-04T22:12:20Z"
-updatedAt: "2026-11-12T05:12:35Z"
+updatedAt: "2026-11-18T10:01:02Z"
 verifiedAt: "2026-11-04T22:12:20Z"
 status: published
 ---
@@ -26,9 +26,9 @@ status: published
 | 項目 | 內容 |
 |---|---|
 | 副本 | 深淵重鑄：盧德萊（Abyssal Forge: Ludra） |
-| 難度／入場裝備等級 | **普通：2,800／困難：3,000** |
+| 難度／入場裝備等級 | **簡單・普通：2,800／困難：3,000** |
 | 人數 | **10人，分成兩個5人小隊**；玩家攻略的編組方式 |
-| 官方時間限制 | 兩種難度每次均為**2小時** |
+| 官方時間限制 | 三種難度每次均為**2小時** |
 | 主要獎勵 | 綁定盧德萊武器與盾牌、手鐲、翅膀及畫作 |
 
 裝備等級是**入場門檻**，不是保證通關的開荒裝備標準。普通與困難提供相同種類的獎勵，掉落機率不同。
@@ -100,7 +100,7 @@ status: published
 - 普通、困難皆可在保底獎勵選擇對應難度的綁定**裝備變更券（Gear Change Voucher）**。
 - **普通券6張 → 盧德萊手鐲（綁定）1個**，或**困難券3張 → 1個**。
 - 透過物質轉換，**普通券2張 → 困難券1張**。
-- 裝備變更券也能透過物質轉換製作**Abyssal Forge: Weapon Selection Chest (Bound)**。公告沒有列出所需張數。
+- 裝備變更券也能透過物質轉換製作**Abyssal Forge: Weapon Selection Chest (Bound)**。
 
 其他版本改動可看[11月4日國際服更新公告](/zh-tw/articles/global-update-2026-11-04/)。
 
@@ -111,3 +111,5 @@ status: published
 - AION 2 Meta「Abyssal Forge Ludra Raid Guide」英文版PDF。
 
 11月11日：兩種難度均延長至2小時，中央融合爐HP降低。第5獎勵組由30%改為100%，新增Wrathful Mind/Will/Ego (Bound)，不代表各材料必掉。 [11/11](/zh-tw/articles/global-update-2026-11-11/)
+
+11月18日：簡單門檻2,800、限時2小時、個人復活不限。簡單／普通／困難裝備合計掉率15%（普通／困難由5%提高）。武器選擇箱各配方為困難1張／普通2張／簡單4張，加500萬基納。裝備掉率與第5獎勵組100%分開計算。 [11/18](/zh-tw/articles/global-update-2026-11-18/)

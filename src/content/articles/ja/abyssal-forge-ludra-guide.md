@@ -12,7 +12,7 @@ region: GLOBAL
 platforms: [Steam, PURPLE]
 officialPublishedAt: null
 publishedAt: "2026-11-04T22:12:20Z"
-updatedAt: "2026-11-12T05:12:35Z"
+updatedAt: "2026-11-18T10:01:02Z"
 verifiedAt: "2026-11-04T22:12:20Z"
 status: published
 ---
@@ -26,9 +26,9 @@ status: published
 | 項目 | 内容 |
 |---|---|
 | ダンジョン | 深淵の再錬：ルドラ |
-| 難易度・入場アイテムレベル | **ノーマル：2,800／ハード：3,000** |
+| 難易度・入場アイテムレベル | **簡単・ノーマル：2,800／ハード：3,000** |
 | 人数 | **10人、5人パーティー×2**。プレイヤー攻略の編成 |
-| 公式の制限時間 | 両難易度とも**2時間** |
+| 公式の制限時間 | 全難易度とも**2時間** |
 | 主な報酬 | 帰属のルドラ武器・盾、ブレスレット、翼、絵画 |
 
 アイテムレベルは**入場条件**であり、初クリアを保証する装備水準ではない。ノーマルとハードは報酬の種類が共通で、ドロップ率が異なる。
@@ -100,7 +100,7 @@ status: published
 - 両難易度の確定報酬で、それぞれに対応する帰属の**Gear Change Voucher**を選択できる。
 - **ノーマル券6枚 → ルドラのブレスレット（帰属）1個**。または**ハード券3枚 → 1個**。
 - 物質変換で**ノーマル券2枚 → ハード券1枚**。
-- Gear Change Voucherは**Abyssal Forge: Weapon Selection Chest (Bound)**への物質変換にも使用可能。必要枚数はパッチに記載されていない。
+- Gear Change Voucherは**Abyssal Forge: Weapon Selection Chest (Bound)**への物質変換にも使用可能。
 
 他の変更点は[11月4日グローバル版アップデート](/ja/articles/global-update-2026-11-04/)へ。
 
@@ -111,3 +111,5 @@ status: published
 - AION 2 Meta「Abyssal Forge Ludra Raid Guide」英語版PDF。
 
 11月11日：両難易度の制限は2時間、中央融合炉のHPを低下。第5報酬グループは30%から100%へ、Wrathful Mind/Will/Ego (Bound)を追加。各素材の確定獲得ではありません。 [11/11](/ja/articles/global-update-2026-11-11/)
+
+11月18日：簡単は入場2,800、2時間、復活無制限。装備の合計獲得率は簡単・普通・難しいで15%（普通・難しいは5%から上昇）。武器選択箱は難しい1枚／普通2枚／簡単4枚と各500万ギーナ。第5報酬グループ100%とは別の規則です。 [11/18](/ja/articles/global-update-2026-11-18/)

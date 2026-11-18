@@ -12,7 +12,7 @@ region: GLOBAL
 platforms: [Steam, PURPLE]
 officialPublishedAt: null
 publishedAt: "2026-11-04T22:12:20Z"
-updatedAt: "2026-11-12T05:12:35Z"
+updatedAt: "2026-11-18T10:01:02Z"
 verifiedAt: "2026-11-04T22:12:20Z"
 status: published
 ---
@@ -26,9 +26,9 @@ status: published
 | Entry | Details |
 |---|---|
 | Raid | Abyssal Forge: Ludra |
-| Modes / minimum item level | **Normal: 2,800 / Hard: 3,000** |
+| Modes / minimum item level | **Easy / Normal: 2,800 / Hard: 3,000** |
 | Group | **10 players**, two parties of five; player-guide setup |
-| Official run limit | **2 hours** in either mode |
+| Official run limit | **2 hours** in all three modes |
 | Main rewards | Bound Ludra weapons/guard, bracelets, wings and artwork |
 
 The item levels are **entry requirements**, not recommended progression for a first clear. Normal offers the same reward types as Hard, with different drop rates.
@@ -100,7 +100,7 @@ The Global patch confirms **Ludra's Weapon / Guard (Bound)**, **Ludra's Bracelet
 - Both modes let you select their respective bound **Gear Change Voucher** as a guaranteed reward.
 - **6 Normal vouchers → 1 Ludra's Bracelet (Bound)**, or **3 Hard vouchers → 1**.
 - **2 Normal vouchers → 1 Hard voucher** through Substance Morph.
-- A Gear Change Voucher can also be used in Substance Morph for an **Abyssal Forge: Weapon Selection Chest (Bound)**. The patch does not specify its voucher quantity.
+- A Gear Change Voucher can also be used in Substance Morph for an **Abyssal Forge: Weapon Selection Chest (Bound)**.
 
 See the [Nov 4 Global update](/en/articles/global-update-2026-11-04/) for the rest of the version changes.
 
@@ -111,3 +111,5 @@ See the [Nov 4 Global update](/en/articles/global-update-2026-11-04/) for the re
 - AION 2 Meta: Abyssal Forge Ludra Raid Guide — English PDF capture.
 
 Nov 11: both modes now allow 2 hours; Central Abyss Fusion Reactor HP is reduced. Reward Group 5 increases from 30% to 100%, with Wrathful Mind/Will/Ego (Bound) added; this does not guarantee each material. [11/11](/en/articles/global-update-2026-11-11/)
+
+Nov 18: Easy requires item level 2,800, allows 2 hours and unlimited personal revives. Combined gear drop rates are 15% in Easy/Normal/Hard (Normal/Hard previously 5%). Weapon selection chest: 1 Hard / 2 Normal / 4 Easy vouchers, plus 5,000,000 Kina per recipe. Gear chance is separate from Reward Group 5 at 100%. [11/18](/en/articles/global-update-2026-11-18/)

@@ -25,6 +25,21 @@ export interface Coupon {
 
 // Never delete expired entries. Unknown announcement times and reward details stay unknown.
 export const coupons: Coupon[] = [{
+  "code": "THANKSFROMAION2",
+  "game": "AION 2 Global",
+  "type": "Korea Game Awards Appreciation Gift",
+  "reward": {
+    "ja": "韓国ゲーム大賞受賞記念クーポン。全サーバー対象、1アカウント1回。報酬は帰属・取引不可。開始：2026年11月18日18:00 JST。 Sync Stone (Unique) (Bound) ×10; Soul Codex: Reset (Bound) ×15; Growth Pet Chest (Bound) ×100; Skin Chest (10 times) (Bound) ×10; Odyle Energy (Bound) ×5; Appearance Change Voucher (30 Days) (Bound) ×1; Customization Voucher (Bound) ×3; Instant Clear Ticket: Nightmare (Bound) ×20; Battle Enhance Scroll (Bound) ×20; Life Crystal (Bound) ×100; Superior Speed Scroll (Bound) ×20; Superior Courage Scroll (Bound) ×20; Superior Benediction Scroll (Bound) ×20",
+    "en": "Korea Game Awards Appreciation Gift. All servers; once per account. Rewards are bound and non-tradable. Starts: 18 Nov 2026 01:00 PST / 10:00 CET. Sync Stone (Unique) (Bound) ×10; Soul Codex: Reset (Bound) ×15; Growth Pet Chest (Bound) ×100; Skin Chest (10 times) (Bound) ×10; Odyle Energy (Bound) ×5; Appearance Change Voucher (30 Days) (Bound) ×1; Customization Voucher (Bound) ×3; Instant Clear Ticket: Nightmare (Bound) ×20; Battle Enhance Scroll (Bound) ×20; Life Crystal (Bound) ×100; Superior Speed Scroll (Bound) ×20; Superior Courage Scroll (Bound) ×20; Superior Benediction Scroll (Bound) ×20",
+    "zh-tw": "韓國遊戲大獎獲獎紀念兌換碼。所有伺服器適用，每帳號限兌換一次；獎勵綁定、不可交易。開始：2026年11月18日17:00 UTC+8。 Sync Stone (Unique) (Bound) ×10; Soul Codex: Reset (Bound) ×15; Growth Pet Chest (Bound) ×100; Skin Chest (10 times) (Bound) ×10; Odyle Energy (Bound) ×5; Appearance Change Voucher (30 Days) (Bound) ×1; Customization Voucher (Bound) ×3; Instant Clear Ticket: Nightmare (Bound) ×20; Battle Enhance Scroll (Bound) ×20; Life Crystal (Bound) ×100; Superior Speed Scroll (Bound) ×20; Superior Courage Scroll (Bound) ×20; Superior Benediction Scroll (Bound) ×20"
+  },
+  "expiresAt": "2027-03-03T07:00:00Z",
+  "status": "active",
+  "sourceUrl": "https://steamcommunity.com/games/3393110/announcements/detail/675137971401261151",
+  "publishedAt": "2026-11-18T10:08:49Z",
+  "verifiedAt": "2026-11-23T06:17:43.561794Z",
+  "verificationBasis": "Official AION 2 Steam announcement and RSS: 18 Nov 2026; starts 2026-11-18T09:00:00Z; ends 2027-03-03T07:00:00Z. All servers; once per account; bound, non-tradable rewards. Exact English names retained pending localized terminology confirmation."
+}, {
   code: 'AION2SPOOKYDAEVA',
   game: 'AION 2 Global',
   type: 'Halloween Coupon',

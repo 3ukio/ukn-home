@@ -9,3 +9,28 @@
 
 /* Coupon history and in-game guide; scoped to Rewards. */
 .coupon-group{margin-top:22px}.coupon-record{display:flex;flex-direction:column;gap:3px;margin-top:8px;color:var(--muted);font-size:13px}.coupon-record a{display:inline-flex;align-items:center;gap:5px;color:var(--accent)}.coupon-path{padding:14px 18px;background:var(--accent-soft);border-radius:var(--radius);overflow-wrap:anywhere}.coupon-guide{padding-left:24px;margin-block:18px}.coupon-guide li{margin-bottom:7px}#redeem>.text-link{margin-top:14px}
+
+/* Keep coupon identifiers and timestamps intact; stack the same records on mobile. */
+.coupon-group .rewards-table{table-layout:fixed}
+.coupon-group .rewards-table th:nth-child(1){width:27%}
+.coupon-group .rewards-table th:nth-child(2){width:36%}
+.coupon-group .rewards-table th:nth-child(3){width:27%}
+.coupon-group .rewards-table th:nth-child(4){width:10%}
+.coupon-group .rewards-table td,.coupon-group .rewards-table th{padding:12px 8px;overflow-wrap:normal}
+.coupon-group .rewards-table code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-weight:700;font-size:15px;white-space:nowrap;overflow-wrap:normal;word-break:normal}
+.coupon-group .coupon-record time,.coupon-date{display:block;white-space:nowrap;font-size:13px;font-variant-numeric:tabular-nums}
+.coupon-group [data-coupon-state-label]{white-space:nowrap}
+.coupon-rewards{margin:0;padding-left:18px;font-size:14px;line-height:1.65}
+.coupon-rewards li+li{margin-top:8px}
+@media(max-width:750px){
+ .coupon-group .rewards-table,.coupon-group .rewards-table tbody{display:block;width:100%}
+ .coupon-group .rewards-table thead{display:none}
+ .coupon-group .rewards-table [data-coupon-row]{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);padding:14px;margin-bottom:14px}
+ .coupon-group .rewards-table td{display:block;border:0;padding:8px 0;min-width:0}
+ .coupon-group .rewards-table td::before{content:attr(data-label);display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
+ .coupon-group .rewards-table td:nth-child(4){order:-1}
+ .coupon-group .rewards-table code{font-size:14px}
+ .coupon-group .rewards-table tr[hidden]{display:none}
+ .coupon-group .rewards-table tr[data-coupon-empty]:not([hidden]){display:block}
+ .coupon-group .coupon-record time,.coupon-date{font-size:12px}
+}

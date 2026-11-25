@@ -25,11 +25,11 @@ const campaignStatus=now<Date.parse(campaign.startsAt)?r.upcoming:now>Date.parse
         <h3>{group.title}</h3>
         <div class="rewards-table-wrap"><table class="rewards-table"><caption class="rewards-sr">{group.title}</caption><thead><tr>{r.columns.map(label=><th scope="col">{label}</th>)}</tr></thead><tbody data-coupon-list={group.state}>
           {group.items.map(code=><tr data-coupon-row data-coupon-code={code.code} data-coupon-status={code.status} data-reward-expiry={code.expiresAt||undefined} data-current-status={group.state}>
-            <td><div class="coupon-code"><code>{code.code}</code><button type="button" data-copy-reward={code.code} data-copied-label={r.copied} data-error-label={r.copyFail} disabled={group.state==='expired'} hidden={group.state==='expired'} aria-label={r.copy+': '+code.code}>{r.copy}</button></div>
+            <td data-label={r.columns[0]}><div class="coupon-code"><code>{code.code}</code><button type="button" data-copy-reward={code.code} data-copied-label={r.copied} data-error-label={r.copyFail} disabled={group.state==='expired'} hidden={group.state==='expired'} aria-label={r.copy+': '+code.code}>{r.copy}</button></div>
               <small class="coupon-record"><a href={code.sourceUrl} target="_blank" rel="noopener noreferrer">{r.couponSource}<Icon name="external" size={13}/></a><span>{r.couponPublished}: {code.publishedAt?<time datetime={code.publishedAt}>{rewardDate(code.publishedAt,lang)}</time>:'—'}</span></small>
             </td>
-            <td>{code.reward[lang]}</td><td>{code.expiresAt?<time datetime={code.expiresAt}>{couponExpiryDate(code.expiresAt,lang)}</time>:'—'}</td>
-            <td><span class={group.state==='active'?'badge':'badge-neutral'} data-coupon-state-label data-active-label={r.active} data-expired-label={r.expired}>{group.state==='active'?r.active:r.expired}</span></td>
+            <td data-label={r.columns[1]}><ul class="coupon-rewards">{code.reward[lang].split('; ').map(item=><li>{item}</li>)}</ul></td><td data-label={r.columns[2]}>{code.expiresAt?<time datetime={code.expiresAt}>{couponExpiryDate(code.expiresAt,lang).split(' / ').map(part=><span class="coupon-date">{part}</span>)}</time>:'—'}</td>
+            <td data-label={r.columns[3]}><span class={group.state==='active'?'badge':'badge-neutral'} data-coupon-state-label data-active-label={r.active} data-expired-label={r.expired}>{group.state==='active'?r.active:r.expired}</span></td>
           </tr>)}
           <tr data-coupon-empty hidden={group.items.length>0}><td colspan="4" class="rewards-empty">{group.empty}</td></tr>
         </tbody></table></div>

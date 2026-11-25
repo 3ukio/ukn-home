@@ -68,19 +68,21 @@ export function expiredCoupons(items = coupons, now = Date.now()) {
 
 // Verified against the AION 2 official Steam announcement, not a third-party reward list.
 export const dropsCampaign = {
-  name: { ja: 'ハロウィン Twitch Drops', en: 'Global Halloween Twitch Drops', 'zh-tw': '萬聖節 Twitch Drops' },
-  startsAt: '2026-10-28T17:00:00Z',
-  endsAt: '2026-11-04T07:59:00Z',
-  claimBy: '2026-11-18T07:59:00Z',
-  sourceUrl: 'https://aion2.plaync.com/en-us/board/notice/view?articleId=6adb63578af865061f6b12b8',
-  steamSource: 'https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302231105',
+  name: { ja: 'ブラックフライデー Twitch Drops', en: 'Daevasgiving Twitch Drops', 'zh-tw': 'Daevasgiving Twitch Drops' },
+  startsAt: '2026-11-25T14:00:00Z',
+  endsAt: '2026-12-10T07:59:00Z',
+  claimBy: null,
+  sourceUrl: "https://steamcommunity.com/games/3393110/announcements/detail/675138605143818272",
+  steamSource: "https://steamcommunity.com/games/3393110/announcements/detail/675138605143818272",
   // Keep exact official English item names until localized in-game names are verified.
   rewards: [
-    { minutes: 60, name: 'Resurrection Spiritstone (Bound)', quantity: 15 },
-    { minutes: 120, name: 'Appearance Change Voucher (Bound)', quantity: 1 },
-    { minutes: 240, name: 'Customization Voucher (Bound)', quantity: 3 },
-    { minutes: 360, name: 'Odyle Energy (Bound)', quantity: 4 },
-    { minutes: 480, name: 'Chubby Panda (Helm)', quantity: 1 },
+    {"minutes": 30, "name": "Resurrection Spiritstone (Bound)", "quantity": 15},
+    {"minutes": 60, "name": "Artisan's Roasted Fogus (Bound)", "quantity": 15},
+    {"minutes": 120, "name": "Customization Voucher (Bound)", "quantity": 3},
+    {"minutes": 240, "name": "Appearance Change Voucher (7 Days) (Bound)", "quantity": 1},
+    {"minutes": 360, "name": "Battle Enhance Scroll (Bound)", "quantity": 20},
+    {"minutes": 480, "name": "Soul Codex: Reset (Bound)", "quantity": 3},
+    {"minutes": 600, "name": "Sync Stone (Unique) (Bound)", "quantity": 6},
   ],
 };
 

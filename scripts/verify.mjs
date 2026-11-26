@@ -36,11 +36,11 @@ for(const p of pages){const html=fs.readFileSync(p,'utf8');
  assert(html.includes('property="og:url"'),`OG: ${p}`);
  assert(!html.includes('/art0.webp')&&!html.includes('/art1.webp')&&!html.includes('/art2.webp')&&!html.includes('/art3.webp'),`unlicensed artwork referenced: ${p}`);
 }
-for(const lang of ['ja','en','zh-tw'])assert(fs.existsSync(`dist/${lang}/articles/official-sources/index.html`));
+for(const lang of ['ja','en','zh-tw'])assert(fs.existsSync(`dist/${lang}/articles/abyssal-forge-ludra-guide/index.html`));
 const ja=fs.readFileSync('dist/ja/articles/maintenance-check/index.html','utf8');assert(ja.includes('/en/guides/?translation=missing'));assert(!ja.includes('hreflang="en" href="https://ukn-home.pages.dev/en/articles/maintenance-check/"'));
 assert(fs.readFileSync('dist/robots.txt','utf8').startsWith('User-agent:'));
 const sitemap=fs.readFileSync('dist/sitemap.xml','utf8');assert(sitemap.startsWith('<?xml'));assert(!sitemap.includes('/articles/first-day/'));
-const articlePath=fs.readFileSync('dist/en/articles/official-sources/index.html','utf8');assert(articlePath.includes('property="og:type" content="article"'));assert(!articlePath.includes('application/ld+json'),'Do not invent missing author metadata');
+const articlePath=fs.readFileSync('dist/en/articles/abyssal-forge-ludra-guide/index.html','utf8');assert(articlePath.includes('property="og:type" content="article"'));assert(!articlePath.includes('application/ld+json'),'Do not invent missing author metadata');
 console.log(`PASS: schema safeguards, timezone conversion, localized dates, missing translations, ${pages.length} HTML pages, ${indexable} indexable pages, internal asset links and SEO metadata.`);
 // A visual edit's update time must not reorder original publication dates.
 const fixtures=[{id:'older',body:'Editorial test',data:{...sample,uid:'older',slug:'older',translationKey:'older',status:'published',updatedAt:'2026-01-10T00:00:00Z'}},{id:'newer',body:'Editorial test',data:{...sample,uid:'newer',slug:'newer',translationKey:'newer',status:'published',publishedAt:'2026-01-02T00:00:00Z',updatedAt:'2026-01-02T00:00:00Z'}}];
@@ -50,6 +50,6 @@ assert.deepEqual((await cm.exports.publishedArticles()).map(a=>a.id),['newer','o
 assert.equal(cm.exports.articlePublishedAt({data:{...sample,category:'patch',officialPublishedAt:'2026-01-03T00:00:00Z'}}),'2026-01-03T00:00:00Z');
 for(const lang of ['ja','en','zh-tw']){
  const home=fs.readFileSync(`dist/${lang}/index.html`,'utf8');assert(home.includes('AION2 NOW'));assert(home.includes('data-theme="dark"'));assert(!home.includes('home-intro'));
- const article=fs.readFileSync(`dist/${lang}/articles/official-sources/index.html`,'utf8');assert(article.includes('<strong>'),'Markdown emphasis must render');assert(article.includes('notice-detail-meta'));assert(article.includes('article-notice-banner'));
+ const article=fs.readFileSync(`dist/${lang}/articles/abyssal-forge-ludra-guide/index.html`,'utf8');assert(article.includes('<strong>'),'Markdown emphasis must render');assert(article.includes('notice-detail-meta'));assert(article.includes('article-notice-banner'));
 }
 console.log('PASS: publication order, honest official dates, default dark theme, centralized brand, compact home and Markdown emphasis.');

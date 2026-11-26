@@ -14,7 +14,7 @@ officialPublishedAt: null
 publishedAt: "2026-10-29T15:05:38Z"
 updatedAt: "2026-10-29T16:38:25Z"
 verifiedAt: "2026-10-29T15:05:38Z"
-status: published
+status: draft
 ---
 
 ## Check the edition first

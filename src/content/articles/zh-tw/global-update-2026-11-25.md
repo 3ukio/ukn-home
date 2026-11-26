@@ -68,6 +68,8 @@ status: published
 
 ### Corroded Decontamination Facility
 
+[三首領攻略與影片](/zh-tw/articles/corroded-decontamination-facility-guide/)
+
 由選單→Sanctuary進入。**裝備等級2,100以上，每週7次獎勵機會**，能力值會配合首領Bargott調整。擊倒後開獎勵方塊，每次取得**5,000活動硬幣**。開箱奧德消耗英文仍是「x」，日文說不需要，**此處待確認**。
 
 | 兌換物 | 硬幣 | 每伺服器每週上限 |

@@ -67,6 +67,8 @@ The Basic level 10 Resurrection Spiritstone quantity differs: English **1**, Jap
 
 ### Corroded Decontamination Facility
 
+[Three-boss walkthrough](/en/articles/corroded-decontamination-facility-guide/)
+
 Menu → Sanctuary. Defeat **Bargott**; stats are normalized. Entry requires **item level 2,100+**, with **7 reward opportunities a week**. Each reward cube grants **5,000 coins**. The English cube-opening Odyle cost is an unresolved “x”; Japanese says no Odyle Energy is needed. **Opening cost needs confirmation.**
 
 | Exchange | Coins | Weekly limit per server |

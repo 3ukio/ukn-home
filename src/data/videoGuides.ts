@@ -14,3 +14,19 @@ export const ludraVideo = {
  {seconds:677,en:'Phase 2 real time',ja:'第2段階・実戦',zh:'第二階段實戰'}
  ]
 };
+
+// Timings from the user-supplied walkthrough; channel and footage version unverified.
+export const corrodedVideo = {
+ youtube:{id:'9T1PPwtuFGg',url:'https://www.youtube.com/watch?v=9T1PPwtuFGg',author:'NoBS Game Guides',title:'Corroded Decontamination Facility Guide | Aion 2 Global'},
+ bilibili:[] as string[],
+ steps:[{id:'step-01',seconds:0,name:'Devouring Klawfly'},{id:'step-02',seconds:100,name:'Black Blood Blatt'},{id:'step-03',seconds:275,name:'Terminator Bargott'}],
+ chapters:[
+ {seconds:18,en:'Klawfly: numbered jumps & rocks',ja:'Klawfly：番号ジャンプと岩',zh:'老一：編號跳躍與石塊'},
+ {seconds:45,en:'Klawfly: purple orbs',ja:'Klawfly：紫オーブ',zh:'老一：紫球'},
+ {seconds:100,en:'Blatt: red / violet order',ja:'Blatt：赤・紫の順番',zh:'老二：紅紫順序'},
+ {seconds:202,en:'Blatt: slime barriers',ja:'Blatt：スライムのバリア',zh:'老二：史萊姆屏障'},
+ {seconds:275,en:'Bargott: pollution, shared hits & bombs',ja:'Bargott：汚染・頭割り・爆弾',zh:'老三：污染、分攤與炸彈'},
+ {seconds:341,en:'Bargott: blue orbs & chains',ja:'Bargott：青オーブと鎖',zh:'老三：藍球與鎖鏈'},
+ {seconds:403,en:'Bargott: final bomb throws',ja:'Bargott：最後の爆弾投げ',zh:'老三：最終投彈'}
+ ]
+};
